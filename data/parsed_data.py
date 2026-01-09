@@ -11,4 +11,16 @@ data_places = [
     "PLASTIK": ["29.01","26.02","26.03","30.04","28.05","11.06","25.06","9.07","23.07","13.08","27.08","24.09","8.10","5.11","10.12"],
     "TERMIN PŁATNOŚCI": ["15.03","15.05","15.09","15.11"],
     },
+    {
+    "rok": 2026,
+    "miejscowości": "maslowo_nowe_tokary_otalzyno_tokarskie_pnie_tokary_warzenko",
+    "organizator": "Gmina Przodkowo",
+    "BIO":["20.01",],
+    "POPIÓŁ": [],
+    "ZMIESZANE": [],
+    "PAPIER": [],
+    "SZKŁO": [],
+    "PLASTIK": [],
+    "TERMIN PŁATNOŚCI": ["15.03","15.05","15.09","15.11"],
+    },
 ]
