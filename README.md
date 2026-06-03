@@ -25,24 +25,59 @@ for f in *.pdf; do convert -density 150 "$f" ../img/"${f%.pdf}.png"; done
 ### Załącz pliki kalendarza w formacie graficznym png. Claude nie działa poprawnei z plikami PDF
 
 ### Prompt
-sPliki to kalendarz na 2026 rok.
-Każdy kwadrat z szarą obramówką na górze reprezentuje miesiąc.
-Każda liczba w tym kwadracie to dzień miesąca.
-Kazda liczba z tłem niebiałym symbolizuje dzień wywozu specyficznych odpadów:
-- BIO - brązowy
-- POPIÓŁ - szary
-- ZMIESZANE - czarny
-- PAPIER - niebieski
-- SZKŁO - zielony
-- PLASTIK - żółty
-- TERMIN PŁATNOŚCI - czerwona ramka
+Analiza uzycia róznych narzędzi AI:
+- Google Gemini -> błędna analiza
+- Grok -> Błędna analiza
+- ChatGPT -> poprawsna analiza
+
+```
+Pliki to kalendarz wywozu odpadów na 2026 rok.
+
+Każdy kwadrat z szarą obramówką reprezentuje miesiąc.
+Każda liczba w tym kwadracie oznacza dzień miesiąca.
+
+Dzień wywozu może być oznaczony:
+- kolorem tła liczby,
+- kolorem obramowania liczby,
+- lub jednocześnie kolorem tła i obramowania.
+
+Kolor obramowania ma takie samo znaczenie jak kolor tła.
+
+Następnie zweryfikuj, że liczba znalezionych terminów dla każdej kategorii
+(BIO, POPIÓŁ, ZMIESZANE, PAPIER, SZKŁO, PLASTIK, TERMIN PŁATNOŚCI)
+odpowiada wszystkim oznaczeniom widocznym w kalendarzu.
+
+Nie pomijaj pojedynczych oznaczeń występujących tylko raz w miesiącu.
+
+Mapowanie kolorów:
+- BIO — brązowy
+- POPIÓŁ — szary
+- ZMIESZANE — czarny
+- PAPIER — niebieski
+- SZKŁO — zielony
+- PLASTIK — żółty
+- TERMIN PŁATNOŚCI — czerwona ramka
+
+Jeżeli dzień posiada zarówno kolorowe tło jak i kolorową ramkę:
+- uwzględnij wszystkie odpowiadające im kategorie,
+- jeden dzień może należeć do wielu kategorii.
 
 Na podstawie tego stwórz obiekt słownika w Pythonie.
 
 rok = 2026
-miejscowości = maslowo_nowe_tokary_otalzyno_tokarskie_pnie_tokary_warzenko
-organizator = Gmina Przodkowo
-miesjcowości = nazwa pliku bez rozszerzenia, początkowych liczb i postfixu _nowe
+miejscowości:  maslowo_nowe_tokary_otalzyno_tokarskie_pnie_tokary_warzenko
+organizator: Gmina Przodkowo
+miesjcowości:
+- pobierz z nazwy pliku,
+- usuń rozszerzenie,
+- usuń początkowy znacznik daty (np. 20251216074741_),
+- usuń postfix "_nowe",
+- pozostałą część pozostaw bez zmian.
+
+
+Przed wygenerowaniem wyniku sprawdź wszystkie dni z kolorowym tłem ORAZ wszystkie dni z kolorowym obramowaniem.
+Nie pomijaj dni oznaczonych wyłącznie obramowaniem.
+
 Przykład:
 
 [
@@ -59,4 +94,5 @@ Przykład:
     "TERMIN PŁATNOŚCI": ["15.03","15.05","15.09","15.11"],
     },
 ]
+```
 ## Integracja z Home Assistant
