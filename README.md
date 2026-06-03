@@ -7,27 +7,25 @@ To repozytorium zawiera informacje:
 ## Żródło danych
 Źródłem danych jest oficjalna strona internetowa Gminy Przodkowo: (https://www.przodkowo.pl/index.php?s=wpisy&id=56)
 
-## Tabela konwersji
-|plik źródłowy|ICS|
-| ------------- |:-------------------:|
-|[bagniewo_brzeziny_bursztynik_gliniewo_kawle_dolne_kawle_gorne_przodkowo](data/20241212085821_bagniewo_brzeziny_bursztynik_gliniewo_kawle_dolne_kawle_gorne_przodkowo.pdf)||
-|[barwik_bielawy_czarna_huta_hejtus_pomieczyno_rab_stanislawy_szarlata_wilanowo](data/20241212085845_barwik_bielawy_czarna_huta_hejtus_pomieczyno_rab_stanislawy_szarlata_wilanowo.pdf)||
-|[czeczewo_hopy_klosowo_klosowko_trzy_rzeki_zaleskie_piaski_zaleze](data/20241212085902_czeczewo_hopy_klosowo_klosowko_trzy_rzeki_zaleskie_piaski_zaleze.pdf)||
-|[kczewo_kobysewo_kosowo_mlynek_osowa_gora_smoldzino](data/20241212085918_kczewo_kobysewo_kosowo_mlynek_osowa_gora_smoldzino.pdf)|||
-|[maslowo_nowe_tokary_otalzyno_tokarskie_pnie_tokary_warzenko](data/20241212085946_maslowo_nowe_tokary_otalzyno_tokarskie_pnie_tokary_warzenko.pdf)|[text](data/2025_maslowo_nowe_tokary_otalzyno_tokarskie_pnie_tokary_warzenko_plain.ics), [kolor](data/2025_maslowo_nowe_tokary_otalzyno_tokarskie_pnie_tokary_warzenko_colored.ics)|
+## Użycie skryptu do generowanie kalendarzy ICS
+- stwórz ręcznie lub przy pomocy LLMa plik `data/parsed_data.py` zgodnie z plikiem `parsed_data.py_EXAMPLE`
+```
+poetry install
+poetry run python generate_calendars.py
+```
+- pliki ICS trafią do katalogu `data`
 
-
-### Konwersja harmonogramów z pdf do png(Linux Manjaro)
+### Konwersja harmonogramów z pdf do png (Linux Manjaro)
 ```cd data/source/2026/pdf
 for f in *.pdf; do convert -density 150 "$f" ../img/"${f%.pdf}.png"; done
 ```
-### Załącz pliki kalendarza w formacie graficznym png. Claude nie działa poprawnei z plikami PDF
+### Załącz pliki kalendarza w formacie graficznym png. LLMy nie działają poprawnie z plikami PDF
 
 ### Prompt
 Analiza uzycia róznych narzędzi AI:
 - Google Gemini -> błędna analiza
 - Grok -> Błędna analiza
-- ChatGPT -> poprawsna analiza
+- ChatGPT -> poprawna analiza (z drobnymi błędami)
 
 ```
 Pliki to kalendarz wywozu odpadów na 2026 rok.
