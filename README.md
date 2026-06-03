@@ -17,8 +17,7 @@ To repozytorium zawiera informacje:
 |[maslowo_nowe_tokary_otalzyno_tokarskie_pnie_tokary_warzenko](data/20241212085946_maslowo_nowe_tokary_otalzyno_tokarskie_pnie_tokary_warzenko.pdf)|[text](data/2025_maslowo_nowe_tokary_otalzyno_tokarskie_pnie_tokary_warzenko_plain.ics), [kolor](data/2025_maslowo_nowe_tokary_otalzyno_tokarskie_pnie_tokary_warzenko_colored.ics)|
 
 
-## Claude code support.
-### Konwwersja harmonogramów z pdf do png(Linux Manjaro)
+### Konwersja harmonogramów z pdf do png(Linux Manjaro)
 ```cd data/source/2026/pdf
 for f in *.pdf; do convert -density 150 "$f" ../img/"${f%.pdf}.png"; done
 ```
