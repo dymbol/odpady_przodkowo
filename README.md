@@ -2,9 +2,9 @@
 Gmina Przodkowo udostępnia kalendarze wywozu odpadów w formie papierowej oraz pliów pdf. W celu dodania dni wywozu do kalendarzy elektronicznych (np.: Google Calendar) i systemów Automatyzacji, należy takie dane wprowadzić.
 To repozytorium zawiera informacje:
 - jak zautomatyzowć proces konwersji danych z pliku pdf do formatu [ICS](https://pl.wikipedia.org/wiki/ICalendar)
-- udostępnia kalendarze w formatacie ICS
+- udostępnia kalendarze w formatacie ICS (w folderze data)
 
-## Żródło danych
+## Źródło danych
 Źródłem danych jest oficjalna strona internetowa Gminy Przodkowo: (https://www.przodkowo.pl/index.php?s=wpisy&id=56)
 
 ## Użycie skryptu do generowanie kalendarzy ICS
@@ -21,12 +21,13 @@ for f in *.pdf; do convert -density 150 "$f" ../img/"${f%.pdf}.png"; done
 ```
 ### Załącz pliki kalendarza w formacie graficznym png. LLMy nie działają poprawnie z plikami PDF
 
-### Prompt
-Analiza uzycia róznych narzędzi AI:
+### Wspomagania LLM
+## Analiza użycia LLMów:
 - Google Gemini -> błędna analiza
 - Grok -> Błędna analiza
 - ChatGPT -> poprawna analiza (z drobnymi błędami)
 
+## Prompt
 ```
 Pliki to kalendarz wywozu odpadów na 2026 rok.
 
@@ -93,3 +94,4 @@ Przykład:
 ]
 ```
 ## Integracja z Home Assistant
+TODO
