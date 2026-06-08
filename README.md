@@ -21,13 +21,13 @@ for f in *.pdf; do convert -density 150 "$f" ../img/"${f%.pdf}.png"; done
 ```
 ### Załącz pliki kalendarza w formacie graficznym png. LLMy nie działają poprawnie z plikami PDF
 
-### Wspomagania LLM
-## Analiza użycia LLMów:
+## Wspomaganie LLM
+### Analiza użycia LLMów:
 - Google Gemini -> błędna analiza
 - Grok -> Błędna analiza
 - ChatGPT -> poprawna analiza (z drobnymi błędami)
 
-## Prompt
+### Prompt
 ```
 Pliki to kalendarz wywozu odpadów na 2026 rok.
 
