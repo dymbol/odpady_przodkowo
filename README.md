@@ -15,17 +15,18 @@ poetry run python generate_calendars.py
 ```
 - pliki ICS trafią do katalogu `data`
 
-### Konwersja harmonogramów z pdf do png (Linux Manjaro)
-```cd data/source/2026/pdf
-for f in *.pdf; do convert -density 150 "$f" ../img/"${f%.pdf}.png"; done
-```
-### Załącz pliki kalendarza w formacie graficznym png. LLMy nie działają poprawnie z plikami PDF
 
 ## Wspomaganie LLM
 ### Analiza użycia LLMów:
 - Google Gemini -> błędna analiza
 - Grok -> Błędna analiza
 - ChatGPT -> poprawna analiza (z drobnymi błędami)
+
+### Konwersja harmonogramów z pdf do png (Linux Manjaro)
+Załącz pliki kalendarza w formacie graficznym png. LLMy nie działają poprawnie z plikami PDF.
+```cd data/source/2026/pdf
+for f in *.pdf; do convert -density 150 "$f" ../img/"${f%.pdf}.png"; done
+```
 
 ### Prompt
 ```
