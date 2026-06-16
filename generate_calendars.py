@@ -1,6 +1,7 @@
-from ics import Calendar, Event
+from icc import Calendar, Event  # Organized imports by standard library first and third-party libraries after
 from datetime import datetime, timedelta, timezone
 import data.parsed_data as parsed_data
+
 
 gmt_plus_2 = timezone(timedelta(hours=2))
     
@@ -16,12 +17,11 @@ event_emot = {
     "TERMIN PŁATNOŚCI": "💵",
 }
 
-def convert_date(date, year):
-    # format in: DD.MM
+def convert_date(date: str, year: str) -> datetime:
+    # format in: DD.MM  
     full_date_string = f"{date}.{year}"
     date_obj = datetime.strptime(full_date_string, "%d.%m.%Y").replace(tzinfo=gmt_plus_2)
     return date_obj
-
 
 for element in parsed_data.data_places:
     for ics_type in ics_types:
